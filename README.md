@@ -8,6 +8,12 @@ blendet Wetterdaten des Deutschen Wetterdienstes ein.
 > **Inoffizielles Angebot.** Dieses Projekt steht in keiner Verbindung zur Deutschen Bahn AG. Alle Angaben
 > sind berechnet bzw. aus Drittquellen übernommen und ohne Gewähr. Rechtliche Einordnung: [docs/RECHTLICHES.md](docs/RECHTLICHES.md).
 
+## Bildschirmfotos (Demo-Modus mit synthetischen Fahrten und Ersatz-Basiskarte)
+
+| Übersicht | Zugdetail | Bahnhof |
+|---|---|---|
+| ![Übersicht](docs/bilder/uebersicht.png) | ![Zugdetail](docs/bilder/zugdetail.png) | ![Bahnhof](docs/bilder/bahnhof.png) |
+
 ## Funktionen
 
 | Bereich | Umsetzung |
