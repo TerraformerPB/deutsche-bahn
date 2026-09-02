@@ -1,0 +1,49 @@
+[Unit]
+Description=DB-ICE-Live-Karte (Node.js)
+Documentation=https://github.com/terraformerpb/deutsche-bahn
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Anwendung liegt unter /opt/db-ice-live-karte (npm ci --omit=dev bereits ausgeführt)
+WorkingDirectory=/opt/db-ice-live-karte
+EnvironmentFile=/etc/db-ice-live-karte.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node src/server.js
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=15s
+KillSignal=SIGTERM
+
+# Härtung
+DynamicUser=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+ProtectProc=invisible
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=no
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+AmbientCapabilities=
+UMask=0077
+MemoryMax=512M
+TasksMax=128
+
+[Install]
+WantedBy=multi-user.target

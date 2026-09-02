@@ -1,0 +1,35 @@
+# Beispiel Caddy v2 – automatisches TLS (Let's Encrypt), Reverse-Proxy auf die App.
+# In .env: TRUST_PROXY=1
+
+bahn.paulbartsch.de {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=15552000"
+		-Server
+	}
+
+	# Anonymisierte Protokollierung (nur Statuscode/Pfad, keine Client-IP)
+	log {
+		output file /var/log/caddy/dbkarte.log {
+			roll_size 10mb
+			roll_keep 5
+			roll_keep_for 168h
+		}
+		format filter {
+			wrap json
+			fields {
+				request>remote_ip delete
+				request>client_ip delete
+				request>headers delete
+			}
+		}
+	}
+
+	reverse_proxy 127.0.0.1:3000 {
+		header_up X-Forwarded-Proto {scheme}
+		transport http {
+			read_timeout 30s
+		}
+	}
+}

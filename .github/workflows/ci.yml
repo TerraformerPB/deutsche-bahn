@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Lint, Tests, Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm audit --omit=dev --audit-level=high
+
+  docker:
+    name: Docker-Build
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Image bauen (ohne Push)
+        run: docker build -t db-ice-live-karte:ci .
+      - name: Container startet und Health ist grün
+        run: |
+          docker run -d --name karte -e DEMO_MODE=false -e WEATHER_PROVIDERS=none -e LOG_LEVEL=warn -p 3000:3000 db-ice-live-karte:ci
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:3000/api/health; then exit 0; fi
+            sleep 2
+          done
+          docker logs karte
+          exit 1

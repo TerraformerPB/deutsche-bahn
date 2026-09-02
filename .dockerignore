@@ -1,0 +1,12 @@
+node_modules
+public/vendor
+test
+test-e2e
+test-results
+docs
+deploy
+.github
+.git
+.env
+*.log
+.data
