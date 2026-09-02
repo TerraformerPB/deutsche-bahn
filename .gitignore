@@ -1,0 +1,9 @@
+node_modules/
+public/vendor/
+.env
+*.log
+.data/
+coverage/
+.DS_Store
+/tmp/
+test-results/
