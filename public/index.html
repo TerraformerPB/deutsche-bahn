@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ICE-Live-Karte</title>
+  <meta name="description" content="Live-Karte des ICE-Fernverkehrs in Deutschland: Zugpositionen, Verspätungen, Streckenstörungen, Landeshauptstädte und Wetter. Inoffizielles Angebot.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/vendor/maplibre-gl.css">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <a class="skip-link" href="#seitenleiste">Zur Seitenleiste springen</a>
+
+  <header class="kopf" role="banner">
+    <div class="kopf-titel">
+      <h1>ICE-Live-Karte</h1>
+      <span class="untertitel">Fernverkehr live · inoffiziell</span>
+    </div>
+    <div class="kopf-status" id="status-chip" role="status" aria-live="polite">
+      <span class="punkt" aria-hidden="true"></span>
+      <span class="status-text">Verbinde …</span>
+    </div>
+    <div class="kopf-aktionen">
+      <button type="button" class="knopf" id="btn-ebenen" aria-haspopup="true" aria-expanded="false" aria-controls="ebenen-menue">Ebenen</button>
+      <button type="button" class="knopf" id="btn-theme" aria-pressed="false" title="Helles/dunkles Design umschalten">Design</button>
+      <button type="button" class="knopf nur-mobil" id="btn-seitenleiste" aria-expanded="true" aria-controls="seitenleiste">Liste</button>
+    </div>
+  </header>
+
+  <div class="banner" id="banner" hidden role="alert"></div>
+
+  <div class="buehne">
+    <aside class="seitenleiste" id="seitenleiste" aria-label="Listen und Details">
+      <nav class="tabs" role="tablist" aria-label="Bereiche">
+        <button type="button" role="tab" id="tab-zuege" aria-controls="panel-zuege" aria-selected="true" class="tab aktiv">Züge <span class="zaehler" id="zaehler-zuege">0</span></button>
+        <button type="button" role="tab" id="tab-stoerungen" aria-controls="panel-stoerungen" aria-selected="false" class="tab">Störungen <span class="zaehler" id="zaehler-stoerungen">0</span></button>
+        <button type="button" role="tab" id="tab-bahnhoefe" aria-controls="panel-bahnhoefe" aria-selected="false" class="tab">Bahnhöfe</button>
+        <button type="button" role="tab" id="tab-wetter" aria-controls="panel-wetter" aria-selected="false" class="tab">Wetter</button>
+        <button type="button" role="tab" id="tab-info" aria-controls="panel-info" aria-selected="false" class="tab">Info</button>
+      </nav>
+
+      <section class="panel aktiv" id="panel-zuege" role="tabpanel" aria-labelledby="tab-zuege">
+        <div class="filter">
+          <label class="visuell-versteckt" for="filter-suche">Zug suchen</label>
+          <input type="search" id="filter-suche" placeholder="Linie, Nummer oder Ziel …" autocomplete="off" maxlength="40">
+          <label class="visuell-versteckt" for="filter-produkt">Zuggattung</label>
+          <select id="filter-produkt">
+            <option value="">Alle Gattungen</option>
+            <option value="nationalExpress">ICE</option>
+            <option value="national">IC / EC</option>
+          </select>
+          <label class="visuell-versteckt" for="filter-status">Status</label>
+          <select id="filter-status">
+            <option value="">Alle Status</option>
+            <option value="on_time">pünktlich</option>
+            <option value="slight">leicht verspätet</option>
+            <option value="delayed">verspätet</option>
+            <option value="heavy">stark verspätet</option>
+            <option value="cancelled">ausgefallen</option>
+          </select>
+          <label class="schalter"><input type="checkbox" id="filter-nur-unterwegs" checked> nur unterwegs</label>
+        </div>
+        <p class="zusammenfassung" id="zusammenfassung-zuege"></p>
+        <ul class="liste" id="liste-zuege" aria-label="Züge"></ul>
+      </section>
+
+      <section class="panel" id="panel-stoerungen" role="tabpanel" aria-labelledby="tab-stoerungen" hidden>
+        <p class="hinweis">Meldungen aus den Fahrtdaten (HIM-Meldungen, Echtzeithinweise). Betroffene Abschnitte werden auf der Karte rot markiert.</p>
+        <ul class="liste" id="liste-stoerungen" aria-label="Störungen"></ul>
+      </section>
+
+      <section class="panel" id="panel-bahnhoefe" role="tabpanel" aria-labelledby="tab-bahnhoefe" hidden>
+        <div class="filter">
+          <label class="visuell-versteckt" for="bahnhof-suche">Bahnhof suchen</label>
+          <input type="search" id="bahnhof-suche" placeholder="Bahnhof suchen (z. B. Fulda) …" autocomplete="off" maxlength="64">
+        </div>
+        <ul class="liste kompakt" id="liste-bahnhof-suche" aria-label="Suchergebnisse"></ul>
+        <h2 class="abschnitt">Landeshauptstädte</h2>
+        <ul class="liste" id="liste-hauptstaedte" aria-label="Landeshauptstädte"></ul>
+      </section>
+
+      <section class="panel" id="panel-wetter" role="tabpanel" aria-labelledby="tab-wetter" hidden>
+        <p class="hinweis" id="wetter-quelle"></p>
+        <div id="wetter-warnungen"></div>
+        <table class="tabelle" id="tabelle-wetter">
+          <caption class="visuell-versteckt">Wetter an den Landeshauptstädten</caption>
+          <thead><tr><th scope="col">Stadt</th><th scope="col">Wetter</th><th scope="col">Temp.</th><th scope="col">Wind</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="aktionen">
+          <button type="button" class="knopf" id="btn-wetter-zug" disabled>Wetter am ausgewählten Zug</button>
+          <p id="wetter-zug"></p>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-info" role="tabpanel" aria-labelledby="tab-info" hidden>
+        <h2 class="abschnitt">Legende</h2>
+        <ul class="legende" id="legende"></ul>
+        <h2 class="abschnitt">Datenstand</h2>
+        <dl class="status-details" id="status-details"></dl>
+        <h2 class="abschnitt">Datenquellen und Lizenzen</h2>
+        <ul class="quellen" id="liste-quellen"></ul>
+        <h2 class="abschnitt">Hinweis</h2>
+        <p class="kleingedrucktes" id="disclaimer"></p>
+      </section>
+
+      <section class="detail" id="detail" hidden aria-live="polite">
+        <div class="detail-kopf">
+          <button type="button" class="knopf knopf-klein" id="btn-detail-zurueck">← Zurück</button>
+          <h2 id="detail-titel"></h2>
+        </div>
+        <div class="detail-inhalt" id="detail-inhalt"></div>
+      </section>
+    </aside>
+
+    <main class="karte-container">
+      <div id="karte" role="region" aria-label="Karte"></div>
+      <div class="ebenen-menue" id="ebenen-menue" hidden>
+        <p class="ebenen-titel">Ebenen</p>
+        <label><input type="checkbox" data-ebene="zuege" checked> Züge</label>
+        <label><input type="checkbox" data-ebene="korridore" checked> ICE-Hauptstrecken</label>
+        <label><input type="checkbox" data-ebene="hauptstaedte" checked> Landeshauptstädte</label>
+        <label><input type="checkbox" data-ebene="bundeslaender" checked> Bundesländer</label>
+        <label><input type="checkbox" data-ebene="stoerungen" checked> Störungen</label>
+        <label><input type="checkbox" data-ebene="wetter" checked> Wetter an den Hauptstädten</label>
+        <label><input type="checkbox" data-ebene="routen"> Live-Streckenverläufe</label>
+        <label><input type="checkbox" data-ebene="labels" checked> Zugnummern</label>
+      </div>
+    </main>
+  </div>
+
+  <footer class="fuss" role="contentinfo">
+    <span>Inoffizielles Angebot – nicht mit der Deutschen Bahn AG verbunden. Alle Angaben ohne Gewähr.</span>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="#panel-info" id="link-quellen">Quellen</a>
+    </nav>
+  </footer>
+
+  <script src="/vendor/pmtiles.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

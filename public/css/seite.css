@@ -1,0 +1,6 @@
+body.seite { display: block; padding: 16px; }
+.seite .text { max-width: 820px; margin: 0 auto; background: var(--flaeche); border: 1px solid var(--rahmen); border-radius: var(--radius); padding: 20px 26px; }
+.seite h1 { font-size: 22px; margin-bottom: 10px; }
+.seite h2 { font-size: 16px; margin: 18px 0 6px; }
+.seite p, .seite li { font-size: 14px; line-height: 1.55; }
+.vorlage-hinweis { border-left: 4px solid var(--leicht); padding: 6px 10px; background: var(--flaeche-2); font-size: 13px; }
