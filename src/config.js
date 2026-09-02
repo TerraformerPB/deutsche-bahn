@@ -181,6 +181,8 @@ export function loadConfig(env = process.env) {
 
   const security = {
     rateLimitPerMin: int(env, 'RATE_LIMIT_PER_MIN', 120, { min: 1, max: 100000 }),
+    /** Serverweites Kontingent für Upstream-Abrufe, die direkt durch Client-Anfragen ausgelöst werden (Abfahrtstafeln, Detail-Aktualisierung). */
+    clientUpstreamPerMin: int(env, 'CLIENT_UPSTREAM_PER_MIN', 12, { min: 1, max: 1000 }),
     /** Hosts, die der HTTP-Client kontaktieren darf (SSRF-Schutz). Wird aus den Basis-URLs abgeleitet. */
     allowedUpstreamOrigins: Array.from(new Set([
       originOf(transport.baseUrl),

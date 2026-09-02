@@ -69,7 +69,8 @@ export function createMapController({ container, config, handlers = {}, reducedM
     touchPitch: false,
   });
   map.touchZoomRotate.disableRotation();
-  map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: config.map.attribution }));
+  // Lizenzbedingung ODbL: Attribution dauerhaft sichtbar, nicht eingeklappt
+  map.addControl(new maplibregl.AttributionControl({ compact: false, customAttribution: config.map.attribution }));
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
   map.addControl(new maplibregl.ScaleControl({ maxWidth: 120, unit: 'metric' }), 'bottom-right');
 

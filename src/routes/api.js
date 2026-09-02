@@ -16,19 +16,22 @@ import { hubs, hubsById } from '../data/hubs.js';
 import { findStation, searchStations } from '../data/stations.js';
 import { corridorsGeoJson } from '../data/corridors.js';
 import { parseStationId, parseTripId, parseProducts, parseBbox, parseLatLon, parseBool, parseQuery } from './validate.js';
+import { createTokenBucket } from '../lib/token-bucket.js';
+import { AppError } from '../lib/errors.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const ATTRIBUTIONS = Object.freeze([
-  { name: 'Fahrplan- und Echtzeitdaten', text: 'v6.db.transport.rest (Community-Schnittstelle, ISC), Daten: Deutsche Bahn AG. Ohne Gewähr.', url: 'https://v6.db.transport.rest/' },
-  { name: 'Wetter', text: 'Datenbasis: Deutscher Wetterdienst (DWD), bereitgestellt über Bright Sky (MIT); ersatzweise Open-Meteo.com (CC BY 4.0).', url: 'https://brightsky.dev/' },
-  { name: 'Karte', text: '© OpenStreetMap-Mitwirkende (ODbL); Darstellung mit MapLibre GL JS und PMTiles (BSD-3-Clause).', url: 'https://www.openstreetmap.org/copyright' },
-  { name: 'Bahnhöfe', text: 'DB Station Data (StaDa) Open Data, CC BY 4.0, © Deutsche Bahn AG / DB InfraGO AG, über db-stations (ISC).', url: 'https://data.deutschebahn.com/' },
-  { name: 'Verwaltungsgrenzen', text: 'deutschlandGeoJSON (Unlicense); für kommerzielle Nutzung durch © GeoBasis-DE / BKG (dl-de/by-2-0) ersetzen.', url: 'https://github.com/isellsoap/deutschlandGeoJSON' },
-  { name: 'ICE-Korridore', text: 'Schematische Streckenverläufe dieses Projekts (MIT), Stützpunkte aus dem Stationsverzeichnis.', url: null },
+  { name: 'Fahrplan- und Echtzeitdaten', text: 'Fahrplan- und Echtzeitdaten: Deutsche Bahn AG, abgerufen über v6.db.transport.rest (inoffizielle Community-API). Alle Angaben ohne Gewähr.', url: 'https://v6.db.transport.rest/' },
+  { name: 'Wetter (DWD)', text: 'Datenbasis: Deutscher Wetterdienst (DWD), bereitgestellt über Bright Sky.', url: 'https://brightsky.dev/' },
+  { name: 'Wetter (Fallback)', text: 'Wetterdaten: Open-Meteo.com (CC BY 4.0).', url: 'https://open-meteo.com/' },
+  { name: 'Kartendaten', text: '© OpenStreetMap-Mitwirkende (ODbL 1.0). Darstellung mit MapLibre GL JS und PMTiles (BSD-3-Clause).', url: 'https://www.openstreetmap.org/copyright' },
+  { name: 'Stationsdaten', text: 'Stationsdaten: © Deutsche Bahn AG / DB InfraGO AG (Station Data, StaDa), CC BY 4.0, aufbereitet über db-stations; gekürzt und umformatiert.', url: 'https://data.deutschebahn.com/' },
+  { name: 'Bundesländergrenzen', text: 'Bundesländergrenzen: deutschlandGeoJSON (isellsoap, Unlicense), Rohdaten GADM/DIVA-GIS (nur nicht-kommerzielle Nutzung); für kommerzielle Nutzung durch © GeoBasis-DE / BKG dl-de/by-2-0 ersetzen.', url: 'https://github.com/isellsoap/deutschlandGeoJSON' },
+  { name: 'ICE-Korridore, Landeshauptstädte, Knoten', text: 'Eigene Datensätze dieses Projekts (CC BY 4.0), Stützpunkte aus dem Stationsverzeichnis; schematisch, nicht gleisgenau.', url: null },
 ]);
 
-export const DISCLAIMER = 'Inoffizielles Angebot – nicht mit der Deutschen Bahn AG verbunden. Zugpositionen sind aus Fahrplan- und Echtzeitdaten berechnet, Verspätungen und Störungen stammen aus Drittquellen. Alle Angaben ohne Gewähr; keine Reiseauskunft. „ICE“, „IC“ und „DB“ sind Marken der Deutschen Bahn AG und werden hier nur beschreibend verwendet.';
+export const DISCLAIMER = 'Diese Karte ist ein privates, inoffizielles Angebot und keine Reiseauskunft. Positionen sind aus Fahrplan- und Echtzeitdaten berechnet und können von der tatsächlichen Lage abweichen. Verbindliche Fahrplan-, Gleis- und Störungsinformationen erhalten Sie ausschließlich von der Deutschen Bahn. Eine Gewähr für Richtigkeit, Vollständigkeit und Verfügbarkeit wird nicht übernommen. Nicht mit der Deutschen Bahn AG verbunden; ICE, IC und DB sind Marken der Deutschen Bahn AG und werden hier nur beschreibend verwendet.';
 
 function staticJson(obj) {
   const body = Buffer.from(JSON.stringify(obj), 'utf8');
@@ -101,6 +104,14 @@ export function createApiRouter({ config, services, logger, now = () => Date.now
   const { poller, store, disruptions, corridors, weather, geometryCache } = services;
   const routeBetween = corridors && typeof corridors.routeBetween === 'function' ? corridors.routeBetween : undefined;
   const positionOpts = { routeBetween, geometryCache };
+  // Kontingent für Upstream-Abrufe, die unmittelbar durch Client-Anfragen ausgelöst werden
+  // (Schutz des Poller-Budgets vor absichtlicher Erschöpfung durch einzelne Clients).
+  const clientBucket = services.clientBucket || createTokenBucket({ ratePerMin: config.security.clientUpstreamPerMin, burst: Math.max(1, Math.ceil(config.security.clientUpstreamPerMin / 3)), now });
+  const takeClientBudget = () => {
+    if (!clientBucket.tryTake(1)) {
+      throw new AppError('Das Kontingent für nutzerausgelöste Datenabrufe ist vorübergehend erschöpft. Bitte in einer Minute erneut versuchen.', { statusCode: 429, code: 'RATE_LIMITED' });
+    }
+  };
 
   const statics = {
     corridors: staticJson(corridorsGeoJson()),
@@ -190,7 +201,11 @@ export function createApiRouter({ config, services, logger, now = () => Date.now
     let record = store.get(tripId) || null;
     let stale = false;
     let refreshError = null;
-    if (refresh || !record || !record.trip) {
+    // Nur bekannte (vom Poller entdeckte) Fahrten dürfen einen Upstream-Abruf auslösen
+    if (!record) throw new NotFoundError('Fahrt nicht gefunden.');
+    if (refresh || !record.trip) {
+      const fresh = record.trip && record.lastFetchedAt !== null && now() - record.lastFetchedAt <= 60_000;
+      if (!fresh) takeClientBudget();
       try {
         record = await poller.refreshTrip(tripId, { maxAgeMs: refresh ? 60_000 : config.transport.tripRefreshMinSec * 1000 });
       } catch (err) {
@@ -259,6 +274,8 @@ export function createApiRouter({ config, services, logger, now = () => Date.now
     const id = parseStationId(req.params.id);
     const st = hubsById.get(id) || findStation(id);
     if (!st) throw new NotFoundError('Bahnhof nicht im Verzeichnis.');
+    const cached = poller.getBoard(id);
+    if (!cached || now() - cached.fetchedAt > config.transport.boardCacheSec * 1000) takeClientBudget();
     const board = await poller.requestBoard(id, { maxAgeMs: config.transport.boardCacheSec * 1000 });
     res.json({
       station: { id: st.id, name: st.name, lat: st.lat, lon: st.lon },

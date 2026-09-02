@@ -45,7 +45,7 @@ Fehler haben die Form `{"error": {"code": "…", "message": "…"}}`. Pro Client
 |---|---|---|
 | 400 | `VALIDATION` | Ungültiger Parameter |
 | 404 | `NOT_FOUND` | Unbekannte Fahrt/Route |
-| 429 | `RATE_LIMITED` | Client-Rate-Limit überschritten |
+| 429 | `RATE_LIMITED` | Client-Rate-Limit überschritten oder Kontingent für nutzerausgelöste Upstream-Abrufe (`CLIENT_UPSTREAM_PER_MIN`) bzw. Wetter-Punktabfragen erschöpft |
 | 503 | `UPSTREAM_RATE_LIMITED`, `CIRCUIT_OPEN` | Datenquelle vorübergehend nicht abfragbar |
 | 502 / 504 | `UPSTREAM_ERROR`, `UPSTREAM_FORMAT`, `UPSTREAM_TIMEOUT` | Fehler der Datenquelle |
 | 500 | `INTERNAL` | Interner Fehler (Details nur im Server-Log) |

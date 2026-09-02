@@ -101,5 +101,7 @@ npm run audit     # npm audit (Laufzeitabhängigkeiten)
 
 ## Lizenz
 
-Quellcode: MIT (siehe [LICENSE](LICENSE)). Daten unterliegen den Lizenzen ihrer Quellen (siehe docs/DATENQUELLEN.md);
-Pflicht-Quellenvermerke werden in der Anwendung angezeigt.
+Quellcode: MIT (siehe [LICENSE](LICENSE)). Die eigenen Datensätze dieses Projekts (ICE-Korridore, Landeshauptstädte,
+Knotenbahnhöfe in `src/data/`) stehen unter CC BY 4.0. Alle übrigen Daten unterliegen den Lizenzen ihrer Quellen
+(OpenStreetMap ODbL, DWD GeoNutzV, Open-Meteo CC BY 4.0, DB StaDa CC BY 4.0, deutschlandGeoJSON Unlicense/GADM –
+siehe docs/DATENQUELLEN.md und docs/RECHTLICHES.md); die Pflicht-Quellenvermerke werden in der Anwendung angezeigt.

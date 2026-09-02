@@ -214,3 +214,20 @@ test('Raster-Modus: Style und Kachel-Proxy mit Validierung und Cache', async () 
     await close();
   }
 });
+
+test('Nutzerausgelöste Upstream-Abrufe sind kontingentiert und auf bekannte Fahrten beschränkt', async () => {
+  const { base, close } = await startApp({ CLIENT_UPSTREAM_PER_MIN: '1' });
+  try {
+    // 8011160 ist im Cache (kein Kontingent nötig); Fulda (8000115) und Kassel (8003200) sind nicht gecacht
+    assert.equal((await fetch(`${base}/api/stations/8011160/departures`)).status, 200);
+    assert.equal((await fetch(`${base}/api/stations/8000115/departures`)).status, 200);
+    const limited = await fetch(`${base}/api/stations/8003200/departures`);
+    assert.equal(limited.status, 429);
+    assert.equal((await limited.json()).error.code, 'RATE_LIMITED');
+    // Unbekannte Fahrt: 404 ohne Upstream-Abruf
+    const unknown = await fetch(`${base}/api/trains/${encodeURIComponent('1|424242|0|80|2092026')}`);
+    assert.equal(unknown.status, 404);
+  } finally {
+    await close();
+  }
+});

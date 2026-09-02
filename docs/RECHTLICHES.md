@@ -55,9 +55,9 @@ Datenschutzkonferenz für Telemedien (Version 1.1, Dezember 2022) ordnet vom Nut
 Einstellungen (Sprache, Darstellung) dieser Ausnahme zu. Theme und Ebenenauswahl fallen darunter,
 weil sie erst durch eine bewusste Nutzerhandlung geschrieben werden. **Ein Consent-Banner ist
 nicht erforderlich.** Es werden keine Cookies gesetzt; `helmet`, `express-rate-limit` und
-`express.static` setzen keine. Zu prüfen ist, ob die eingesetzte MapLibre-Version die
-Browser-Cache-API für Kacheln nutzt; falls ja, gilt dies als technisch notwendig und ist in der
-Datenschutzerklärung zu nennen.
+`express.static` setzen keine. MapLibre GL JS legt Kartenkacheln im Browser-Cache
+(einschließlich der Cache-API) ab; das ist technisch notwendig (§ 25 Abs. 2 Nr. 2 TDDDG) und wird
+in der Datenschutzerklärung (`public/datenschutz.html`, Ziffer 6) genannt.
 
 ### 2.4 Keine Drittanbieter, keine Drittlandtransfers
 
@@ -291,7 +291,8 @@ nötig würde.
 
 Der Quellcode ist als Computerprogramm geschützt (§ 69a UrhG); die Korridorliste und die
 Knotenauswahl können als Datenbankwerk (§ 4 Abs. 2 UrhG) oder Datenbank (§ 87a UrhG) geschützt
-sein. `package.json` nennt MIT, eine `LICENSE`-Datei fehlt noch. Die MIT-Lizenz verlangt bei
+sein. `package.json` und die Datei `LICENSE` nennen MIT; die eigenen Datensätze (Korridore,
+Landeshauptstädte, Knoten) stehen unter CC BY 4.0 (siehe README und Info-Tab). Die MIT-Lizenz verlangt bei
 Weitergabe die Beibehaltung des Copyright-Vermerks und schließt Gewährleistung aus. Beiträge
 Dritter unterliegen automatisch derselben Lizenz, sofern die README das klarstellt.
 
@@ -299,8 +300,8 @@ Dritter unterliegen automatisch derselben Lizenz, sofern die README das klarstel
 
 Die OSM-Attribution ist keine Höflichkeit, sondern Lizenzbedingung (ODbL 4.3) und laut OSMF
 Attribution Guidelines dauerhaft, ohne Interaktion sichtbar auf der Karte selbst anzubringen.
-Der MapLibre-`AttributionControl` darf daher nicht eingeklappt oder ausgeblendet werden
-(`compact: false` oder explizite Attribution im Kartenrand). Zusätzlich gehört eine
+Der MapLibre-`AttributionControl` darf daher nicht eingeklappt oder ausgeblendet werden;
+`public/js/map.js` setzt `compact: false`. Zusätzlich gehört eine
 Quellen-Seite (`/quellen` oder Info-Tab) mit allen Texten aus 5.1 dazu.
 
 ## 7. Checkliste vor Inbetriebnahme
@@ -317,5 +318,5 @@ Quellen-Seite (`/quellen` oder Info-Tab) mit allen Texten aus 5.1 dazu.
 - [ ] HTTPS mit gültigem Zertifikat am Reverse-Proxy; `HSTS_ENABLED=true` erst, wenn TLS dauerhaft gesichert ist; `TRUST_PROXY` korrekt gesetzt, damit Rate-Limit und Anonymisierung die Client-IP treffen.
 - [ ] Im Browser geprüft (DevTools, Netzwerk): keine Requests außer zu eigener Domain und `maps.paulbartsch.de`; keine Cookies.
 - [ ] Kontaktadresse für Beschwerden (DB, Wrapper-Betreiber, Nutzer) im Impressum und im User-Agent; Verfahren festgelegt: bei Aufforderung der DB sofortige Abschaltung des Upstream-Adapters (`DEMO_MODE=true` oder Dienst stoppen).
-- [ ] `LICENSE`-Datei (MIT) angelegt; README nennt die abweichenden Datenlizenzen und die Lizenz der eigenen Datensätze.
+- [x] `LICENSE`-Datei (MIT) angelegt; README nennt die abweichenden Datenlizenzen und die Lizenz der eigenen Datensätze (CC BY 4.0).
 - [ ] Bei jeder Form von Monetarisierung: Datenquelle auf DB API Marketplace oder DELFI-GTFS-RT umgestellt, Bundesländer durch BKG VG2500 ersetzt, Open-Meteo-Abonnement oder Abschaltung, BFSG-Prüfung wiederholt, Impressum nach § 5 DDG erweitert.
