@@ -131,8 +131,9 @@ function buildSchedule({ corridors, seed, tripsPerCorridor, fromMs, toMs }) {
       const seq = dir === 1 ? stops : [...stops].reverse();
       for (const dayStart of uniqueDays) {
         for (let k = 0; k * headwayMin < 24 * 60; k++) {
-          const depMin = 5 * 60 + offsetMin + k * headwayMin + (dir === -1 ? Math.floor(headwayMin / 2) : 0);
-          if (depMin >= 23 * 60) break;
+          // Rund um die Uhr, damit Demo und Tests zu jeder Tageszeit Fahrten zeigen
+          const depMin = offsetMin + k * headwayMin + (dir === -1 ? Math.floor(headwayMin / 2) : 0);
+          if (depMin >= 24 * 60) break;
           const depMs = dayStart + depMin * MIN;
           // Fahrzeit-Schätzung für Fensterprüfung
           const total = Math.abs(cum[seq[seq.length - 1].index] - cum[seq[0].index]);
