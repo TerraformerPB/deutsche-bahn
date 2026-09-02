@@ -41,7 +41,7 @@ Voraussetzungen: Node.js ≥ 22, npm.
 ```bash
 npm install                 # installiert Abhängigkeiten und kopiert MapLibre/PMTiles nach public/vendor
 cp .env.example .env        # anpassen (mindestens MAP_STYLE_URL, USER_AGENT mit Kontaktadresse)
-npm start                   # http://localhost:3000
+npm start                   # liest .env automatisch; http://localhost:3000
 ```
 
 Demo ohne Internetzugang (synthetische Fahrten, Mock-Wetter, Ersatz-Basiskarte):
@@ -68,6 +68,7 @@ Wichtige Umgebungsvariablen (vollständig in [.env.example](.env.example)):
 | `TRACK_PRODUCTS` | `nationalExpress` (ICE) oder `nationalExpress,national` (ICE + IC/EC) | `nationalExpress` |
 | `WEATHER_PROVIDERS` | `brightsky,open-meteo` oder `none` | `brightsky,open-meteo` |
 | `TRUST_PROXY` | hinter Reverse-Proxy: `1` | `false` |
+| `CLIENT_UPSTREAM_PER_MIN` | serverweites Kontingent für nutzerausgelöste Upstream-Abrufe (Abfahrtstafeln, Detail-Aktualisierung) | `12` |
 
 ## Kartenserver
 
