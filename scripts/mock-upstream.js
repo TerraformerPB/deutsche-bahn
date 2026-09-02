@@ -400,7 +400,7 @@ export function createMockUpstream({ seed = 42, now = () => Date.now(), tripsPer
     log(`${req.method} ${path}`);
     const send = (status, body, headers = {}) => {
       const buf = Buffer.from(JSON.stringify(body));
-      res.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'content-length': buf.length, ...headers });
+      res.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'content-length': buf.length, 'access-control-allow-origin': '*', ...headers });
       res.end(buf);
     };
     if (req.method !== 'GET') return send(405, { error: true, msg: 'Nur GET' });

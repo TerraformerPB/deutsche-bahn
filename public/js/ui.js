@@ -114,12 +114,20 @@ export function createUi({ store, api, map, config, prefs }) {
     dom.statusChip.dataset.zustand = zustand;
     dom.statusChip.querySelector('.status-text').textContent = text;
   }
-  function showBanner(text) {
-    dom.banner.textContent = text;
+  const banners = new Map();
+  function renderBanner() {
+    const first = banners.values().next();
+    if (first.done) { dom.banner.hidden = true; dom.banner.textContent = ''; return; }
+    dom.banner.textContent = banners.size > 1 ? `${first.value} (+${banners.size - 1} weitere Hinweise)` : first.value;
     dom.banner.hidden = false;
   }
-  function hideBanner() {
-    dom.banner.hidden = true;
+  function showBanner(text, kind = 'allgemein') {
+    banners.set(kind, text);
+    renderBanner();
+  }
+  function hideBanner(kind = 'allgemein') {
+    banners.delete(kind);
+    renderBanner();
   }
 
   // ---------------------------------------------------------------- Detailansicht

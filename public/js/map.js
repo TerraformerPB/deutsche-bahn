@@ -2,7 +2,7 @@
  * Kartensteuerung: MapLibre GL JS mit PMTiles-Protokoll, Overlays (Bundesländer, ICE-Korridore,
  * Züge, Störungen, Landeshauptstädte mit Wetter) und sanfter Positionsanimation.
  */
-import maplibregl from '/vendor/maplibre-gl.mjs';
+import * as maplibregl from '/vendor/maplibre-gl.mjs';
 import { STATUS_COLORS, fmtDelay, statusLabel } from './format.js';
 import { createWeatherIcon } from './weather-icons.js';
 
@@ -14,6 +14,7 @@ const FALLBACK_STYLE = {
   layers: [{ id: 'background', type: 'background', paint: { 'background-color': '#dfe6ec' } }],
 };
 const SVG_NS = 'http://www.w3.org/2000/svg';
+const LABEL_OFFSETS = { 'DE-BE': [-10, -13], 'DE-BB': [-10, 13], 'DE-HE': [-10, -13], 'DE-RP': [-10, 13] };
 
 function el(tag, className, text) {
   const e = document.createElement(tag);
@@ -322,7 +323,9 @@ export function createMapController({ container, config, handlers = {}, reducedM
       const open = () => { if (handlers.onCapitalClick) handlers.onCapitalClick(p); };
       root.addEventListener('click', (ev) => { ev.stopPropagation(); open(); });
       root.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); open(); } });
-      const marker = new maplibregl.Marker({ element: root, anchor: 'left', offset: [-10, 0] }).setLngLat(f.geometry.coordinates).addTo(map);
+      // Nahe beieinander liegende Hauptstädte (Berlin/Potsdam, Wiesbaden/Mainz) versetzt beschriften
+      const offset = LABEL_OFFSETS[p.stateId] || [-10, 0];
+      const marker = new maplibregl.Marker({ element: root, anchor: 'left', offset }).setLngLat(f.geometry.coordinates).addTo(map);
       markers.set(p.stationId, { marker, element: root, weatherEl, props: p });
     }
     applyVisibility();

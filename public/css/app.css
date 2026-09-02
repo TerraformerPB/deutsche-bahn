@@ -21,6 +21,7 @@
   --seitenleiste-breite: 380px;
   --kopf-hoehe: 56px;
   --fuss-hoehe: 34px;
+  --tabs-hoehe: 40px;
   color-scheme: light;
 }
 html[data-theme="dark"] {
@@ -51,6 +52,7 @@ html[data-theme="dark"] {
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html, body { height: 100%; margin: 0; }
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
@@ -107,8 +109,8 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   background: var(--flaeche); border-right: 1px solid var(--rahmen);
   display: flex; flex-direction: column; min-height: 0; position: relative;
 }
-.tabs { display: flex; border-bottom: 1px solid var(--rahmen); overflow-x: auto; }
-.tab { flex: 1 0 auto; border: 0; background: none; padding: 9px 8px; color: var(--text-2); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; }
+.tabs { display: flex; height: var(--tabs-hoehe); flex: 0 0 auto; border-bottom: 1px solid var(--rahmen); overflow: hidden; }
+.tab { flex: 1 1 0; min-width: 0; border: 0; background: none; padding: 0 5px; font-size: 13px; color: var(--text-2); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .tab.aktiv { color: var(--text); border-bottom-color: var(--akzent); font-weight: 600; }
 .zaehler { display: inline-block; min-width: 18px; padding: 0 5px; border-radius: 999px; background: var(--flaeche-2); font-size: 11px; color: var(--text-2); }
 .panel { flex: 1 1 auto; overflow: auto; padding: 8px 10px; display: none; }
@@ -181,11 +183,14 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .kleingedrucktes { font-size: 12px; color: var(--text-2); }
 
 /* Detail */
-.detail { position: absolute; inset: 0; background: var(--flaeche); display: flex; flex-direction: column; z-index: 2; }
+.detail { position: absolute; top: var(--tabs-hoehe); left: 0; right: 0; bottom: 0; background: var(--flaeche); display: flex; flex-direction: column; z-index: 2; }
 .detail-kopf { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-bottom: 1px solid var(--rahmen); }
 .detail-kopf h2 { font-size: 15px; }
 .detail-inhalt { overflow: auto; padding: 8px 10px; flex: 1 1 auto; }
 .detail-inhalt h3 { font-size: 13px; margin: 12px 0 6px; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.04em; }
+.detail-inhalt .tabelle { font-size: 12px; table-layout: auto; }
+.detail-inhalt .tabelle th, .detail-inhalt .tabelle td { padding: 4px 3px; }
+.detail-inhalt .tabelle td.num { white-space: normal; }
 .kennzahlen { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 6px; }
 .kennzahl { border: 1px solid var(--rahmen); border-radius: var(--radius); padding: 6px 8px; }
 .kennzahl .wert { font-size: 16px; font-weight: 700; }

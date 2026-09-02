@@ -35,7 +35,7 @@ async function boot() {
         const d = (store.get().disruptions || []).find((x) => x.id === id);
         if (d && ui) { ui.activateTab('stoerungen'); ui.focusDisruption(d); }
       },
-      onStyleError: (msg) => ui && ui.showBanner(`Kartenstil nicht erreichbar (${msg}) – Ersatz-Basiskarte ohne Kartendetails aktiv. Prüfen Sie MAP_STYLE_URL und CORS am Kartenserver.`),
+      onStyleError: (msg) => ui && ui.showBanner(`Kartenstil nicht erreichbar (${msg}) – Ersatz-Basiskarte ohne Kartendetails aktiv. Prüfen Sie MAP_STYLE_URL und CORS am Kartenserver.`, 'karte'),
     },
   });
   ui = createUi({ store, api, map, config, prefs });
@@ -98,12 +98,12 @@ async function boot() {
     if (document.hidden) { schedule(name); return; }
     try {
       await loaders[name]();
-      if (name === 'trains') { consecutiveErrors = 0; ui.hideBanner(); }
+      if (name === 'trains') { consecutiveErrors = 0; ui.hideBanner('daten'); }
     } catch (err) {
       if (name === 'trains') {
         consecutiveErrors++;
         store.set({ apiError: consecutiveErrors >= 2 });
-        if (consecutiveErrors >= 2) ui.showBanner(`Datenquelle nicht erreichbar (${err.message}) – es werden die letzten bekannten Daten angezeigt.`);
+        if (consecutiveErrors >= 2) ui.showBanner(`Datenquelle nicht erreichbar (${err.message}) – es werden die letzten bekannten Daten angezeigt.`, 'daten');
       }
     } finally {
       schedule(name);
