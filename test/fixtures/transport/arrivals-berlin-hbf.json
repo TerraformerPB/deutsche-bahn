@@ -1,0 +1,222 @@
+{
+  "arrivals": [
+    {
+      "tripId": "1|221950|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": "2026-09-02T17:31:00+02:00",
+      "plannedWhen": "2026-09-02T17:29:00+02:00",
+      "delay": 120,
+      "platform": "13",
+      "plannedPlatform": "13",
+      "prognosedPlatform": null,
+      "direction": null,
+      "provenance": "Hamburg-Altona",
+      "line": {
+        "type": "line",
+        "id": "ice-903",
+        "fahrtNr": "903",
+        "name": "ICE 903",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "ICE",
+        "mode": "train",
+        "product": "nationalExpress",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "stop",
+        "id": "8002553",
+        "name": "Hamburg-Altona",
+        "location": {
+          "type": "location",
+          "id": "8002553",
+          "latitude": 53.552695,
+          "longitude": 9.935175
+        }
+      },
+      "destination": null
+    },
+    {
+      "tripId": "1|118004|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": "2026-09-02T17:52:00+02:00",
+      "plannedWhen": "2026-09-02T17:38:00+02:00",
+      "delay": 840,
+      "platform": "8",
+      "plannedPlatform": "8",
+      "prognosedPlatform": null,
+      "direction": null,
+      "provenance": "München Hbf",
+      "line": {
+        "type": "line",
+        "id": "ice-1006",
+        "fahrtNr": "1006",
+        "name": "ICE 1006",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "ICE",
+        "mode": "train",
+        "product": "nationalExpress",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [
+        {
+          "type": "status",
+          "summary": "Verspätung",
+          "text": "Verspätung aus vorheriger Fahrt"
+        }
+      ],
+      "origin": {
+        "type": "stop",
+        "id": "8000261",
+        "name": "München Hbf",
+        "location": {
+          "type": "location",
+          "id": "8000261",
+          "latitude": 48.140232,
+          "longitude": 11.558335
+        }
+      },
+      "destination": null
+    },
+    {
+      "tripId": "1|377210|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": null,
+      "plannedWhen": "2026-09-02T17:44:00+02:00",
+      "delay": null,
+      "platform": null,
+      "plannedPlatform": "5",
+      "prognosedPlatform": null,
+      "direction": null,
+      "provenance": "Köln Hbf",
+      "line": {
+        "type": "line",
+        "id": "ice-849",
+        "fahrtNr": "849",
+        "name": "ICE 849",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "ICE",
+        "mode": "train",
+        "product": "nationalExpress",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [
+        {
+          "type": "warning",
+          "code": "HIM-777001",
+          "summary": "Zug fällt aus",
+          "text": "Fahrt fällt aus. Grund: Polizeieinsatz."
+        }
+      ],
+      "origin": {
+        "type": "stop",
+        "id": "8000207",
+        "name": "Köln Hbf",
+        "location": {
+          "type": "location",
+          "id": "8000207",
+          "latitude": 50.94303,
+          "longitude": 6.958729
+        }
+      },
+      "destination": null,
+      "cancelled": true
+    },
+    {
+      "tripId": "1|455391|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": "2026-09-02T17:58:00+02:00",
+      "plannedWhen": "2026-09-02T17:58:00+02:00",
+      "delay": 0,
+      "platform": "11",
+      "plannedPlatform": "11",
+      "prognosedPlatform": null,
+      "direction": null,
+      "provenance": "Amsterdam Centraal",
+      "line": {
+        "type": "line",
+        "id": "ic-143",
+        "fahrtNr": "143",
+        "name": "IC 143",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "IC",
+        "mode": "train",
+        "product": "national",
+        "operator": {
+          "type": "operator",
+          "id": "nederlandse-spoorwegen",
+          "name": "Nederlandse Spoorwegen"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "stop",
+        "id": "8400058",
+        "name": "Amsterdam Centraal",
+        "location": {
+          "type": "location",
+          "latitude": 52.379,
+          "longitude": 4.9
+        }
+      },
+      "destination": null
+    }
+  ],
+  "realtimeDataUpdatedAt": 1788708600
+}

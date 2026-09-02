@@ -1,0 +1,459 @@
+{
+  "departures": [
+    {
+      "tripId": "1|318206|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": "2026-09-02T17:34:00+02:00",
+      "plannedWhen": "2026-09-02T17:34:00+02:00",
+      "delay": 0,
+      "platform": "3",
+      "plannedPlatform": "3",
+      "prognosedPlatform": null,
+      "direction": "München Hbf",
+      "provenance": null,
+      "line": {
+        "type": "line",
+        "id": "ice-597",
+        "fahrtNr": "597",
+        "name": "ICE 597",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "ICE",
+        "mode": "train",
+        "product": "nationalExpress",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [
+        {
+          "type": "hint",
+          "code": "FK",
+          "summary": null,
+          "text": "Fahrradmitnahme begrenzt möglich"
+        },
+        {
+          "type": "hint",
+          "code": "KO",
+          "text": "Komfort Check-in verfügbar"
+        }
+      ],
+      "origin": null,
+      "destination": {
+        "type": "stop",
+        "id": "8000261",
+        "name": "München Hbf",
+        "location": {
+          "type": "location",
+          "id": "8000261",
+          "latitude": 48.140232,
+          "longitude": 11.558335
+        }
+      },
+      "loadFactor": "high"
+    },
+    {
+      "tripId": "1|241132|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": "2026-09-02T17:41:00+02:00",
+      "plannedWhen": "2026-09-02T17:36:00+02:00",
+      "delay": 300,
+      "platform": "14",
+      "plannedPlatform": "12",
+      "prognosedPlatform": "14",
+      "direction": "Hamburg-Altona",
+      "provenance": null,
+      "line": {
+        "type": "line",
+        "id": "ice-1004",
+        "fahrtNr": "1004",
+        "name": "ICE 1004",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "ICE",
+        "mode": "train",
+        "product": "nationalExpress",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [
+        {
+          "type": "status",
+          "code": "changed platform",
+          "summary": "Gleiswechsel",
+          "text": "Gleiswechsel: Abfahrt heute von Gleis 14 statt Gleis 12",
+          "priority": 200
+        }
+      ],
+      "origin": null,
+      "destination": {
+        "type": "stop",
+        "id": "8002553",
+        "name": "Hamburg-Altona",
+        "location": {
+          "type": "location",
+          "id": "8002553",
+          "latitude": 53.552695,
+          "longitude": 9.935175
+        }
+      }
+    },
+    {
+      "tripId": "1|352017|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": "2026-09-02T17:57:00+02:00",
+      "plannedWhen": "2026-09-02T17:42:00+02:00",
+      "delay": 900,
+      "platform": "13",
+      "plannedPlatform": "13",
+      "prognosedPlatform": null,
+      "direction": "Ostseebad Binz",
+      "provenance": null,
+      "line": {
+        "type": "line",
+        "id": "ic-2431",
+        "fahrtNr": "2431",
+        "name": "IC 2431",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "IC",
+        "mode": "train",
+        "product": "national",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [
+        {
+          "type": "status",
+          "code": null,
+          "summary": "Verspätung",
+          "text": "Verspätung eines vorausfahrenden Zuges",
+          "modified": "2026-09-02T17:20:00+02:00"
+        }
+      ],
+      "origin": null,
+      "destination": {
+        "type": "stop",
+        "id": "8011191",
+        "name": "Ostseebad Binz",
+        "location": {
+          "type": "location",
+          "id": "8011191",
+          "latitude": 54.404819,
+          "longitude": 13.600507
+        }
+      }
+    },
+    {
+      "tripId": "1|290443|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": null,
+      "plannedWhen": "2026-09-02T17:46:00+02:00",
+      "delay": null,
+      "platform": null,
+      "plannedPlatform": "1",
+      "prognosedPlatform": null,
+      "direction": "Frankfurt(Main)Hbf",
+      "provenance": null,
+      "line": {
+        "type": "line",
+        "id": "ice-1601",
+        "fahrtNr": "1601",
+        "name": "ICE 1601",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "ICE",
+        "mode": "train",
+        "product": "nationalExpress",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [
+        {
+          "type": "warning",
+          "code": "HIM-123456",
+          "summary": "Fahrt fällt aus",
+          "text": "Fahrt fällt aus. Grund: Störung an einem Stellwerk in Halle (Saale) Hbf. Bitte nutzen Sie die nachfolgenden Züge.",
+          "modified": "2026-09-02T16:58:00+02:00",
+          "priority": 100
+        }
+      ],
+      "origin": null,
+      "destination": {
+        "type": "stop",
+        "id": "8000105",
+        "name": "Frankfurt (Main) Hbf",
+        "location": {
+          "type": "location",
+          "id": "8000105",
+          "latitude": 50.107145,
+          "longitude": 8.663789
+        }
+      },
+      "cancelled": true
+    },
+    {
+      "tripId": "1|187731|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": "2026-09-02T18:16:00+02:00",
+      "plannedWhen": "2026-09-02T17:51:00+02:00",
+      "delay": 1500,
+      "platform": "12",
+      "plannedPlatform": "12",
+      "prognosedPlatform": null,
+      "direction": "Köln Hbf",
+      "provenance": null,
+      "line": {
+        "type": "line",
+        "id": "ice-1092",
+        "fahrtNr": "1092",
+        "name": "ICE 1092",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "ICE",
+        "mode": "train",
+        "product": "nationalExpress",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [
+        {
+          "type": "warning",
+          "code": "HIM-654321",
+          "summary": "Bauarbeiten zwischen Berlin-Spandau und Wolfsburg Hbf",
+          "text": "Bauarbeiten zwischen Berlin-Spandau und Wolfsburg Hbf. Der Zug wird umgeleitet, es kommt zu Verspätungen von ca. 25 Minuten.",
+          "modified": "2026-09-02T12:00:00+02:00",
+          "priority": 150
+        },
+        {
+          "type": "hint",
+          "code": "RO",
+          "text": "Bordrestaurant"
+        }
+      ],
+      "origin": null,
+      "destination": {
+        "type": "stop",
+        "id": "8000207",
+        "name": "Köln Hbf",
+        "location": {
+          "type": "location",
+          "id": "8000207",
+          "latitude": 50.94303,
+          "longitude": 6.958729
+        }
+      },
+      "loadFactor": "very-high"
+    },
+    {
+      "tripId": "1|402918|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": "2026-09-02T18:00:00+02:00",
+      "plannedWhen": "2026-09-02T17:58:00+02:00",
+      "delay": 120,
+      "platform": "7",
+      "plannedPlatform": "7",
+      "prognosedPlatform": null,
+      "direction": "Praha hl.n.",
+      "provenance": null,
+      "line": {
+        "type": "line",
+        "id": "ec-177",
+        "fahrtNr": "177",
+        "name": "EC 177",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "EC",
+        "mode": "train",
+        "product": "national",
+        "operator": {
+          "type": "operator",
+          "id": "ceske-drahy",
+          "name": "České dráhy"
+        }
+      },
+      "remarks": [],
+      "origin": null,
+      "destination": {
+        "type": "stop",
+        "id": "5400014",
+        "name": "Praha hl.n.",
+        "location": {
+          "type": "location",
+          "latitude": 50.083,
+          "longitude": 14.435
+        }
+      }
+    },
+    {
+      "tripId": "1|219087|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof"
+      },
+      "when": "2026-09-02T18:04:00+02:00",
+      "plannedWhen": "2026-09-02T18:04:00+02:00",
+      "delay": null,
+      "platform": "4",
+      "plannedPlatform": "4",
+      "prognosedPlatform": null,
+      "direction": "Dresden Hbf",
+      "provenance": null,
+      "line": {
+        "type": "line",
+        "id": "ice-1543",
+        "fahrtNr": "1543",
+        "name": "ICE 1543",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "ICE",
+        "mode": "train",
+        "product": "nationalExpress",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [],
+      "origin": null,
+      "destination": {
+        "type": "stop",
+        "id": "8010085",
+        "name": "Dresden Hbf"
+      }
+    },
+    {
+      "tripId": "1|501224|0|80|2092026",
+      "stop": {
+        "type": "stop",
+        "id": "8011160",
+        "name": "Berlin Hauptbahnhof",
+        "location": {
+          "type": "location",
+          "id": "8011160",
+          "latitude": 52.525592,
+          "longitude": 13.369545
+        }
+      },
+      "when": "2026-09-02T18:09:00+02:00",
+      "plannedWhen": "2026-09-02T18:07:00+02:00",
+      "delay": 120,
+      "platform": "2",
+      "plannedPlatform": "2",
+      "prognosedPlatform": null,
+      "direction": "Basel SBB",
+      "provenance": null,
+      "line": {
+        "type": "line",
+        "id": "ice-279",
+        "fahrtNr": "279",
+        "name": "ICE 279",
+        "public": true,
+        "adminCode": "80____",
+        "productName": "ICE",
+        "mode": "train",
+        "product": "nationalExpress",
+        "operator": {
+          "type": "operator",
+          "id": "db-fernverkehr-ag",
+          "name": "DB Fernverkehr AG"
+        }
+      },
+      "remarks": [
+        {
+          "type": "hint",
+          "code": "text.journeystop.product.or.direction.changes.stop.message",
+          "text": "Halt entfällt: Frankfurt (Main) Flughafen Fernbahnhof"
+        }
+      ],
+      "origin": null,
+      "destination": {
+        "type": "stop",
+        "id": "8500010",
+        "name": "Basel SBB",
+        "location": {
+          "type": "location",
+          "latitude": 47.547,
+          "longitude": 7.589
+        }
+      }
+    }
+  ],
+  "realtimeDataUpdatedAt": 1788708600
+}

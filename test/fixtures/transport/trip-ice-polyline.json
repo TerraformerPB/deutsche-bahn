@@ -1,0 +1,934 @@
+{
+  "trip": {
+    "id": "1|264573|0|80|2092026",
+    "origin": {
+      "type": "stop",
+      "id": "8000080",
+      "name": "Dortmund Hbf",
+      "location": {
+        "type": "location",
+        "id": "8000080",
+        "latitude": 51.517896,
+        "longitude": 7.45929
+      }
+    },
+    "destination": {
+      "type": "stop",
+      "id": "8000105",
+      "name": "Frankfurt (Main) Hbf",
+      "location": {
+        "type": "location",
+        "id": "8000105",
+        "latitude": 50.107145,
+        "longitude": 8.663789
+      }
+    },
+    "departure": "2026-09-02T15:03:00+02:00",
+    "plannedDeparture": "2026-09-02T15:03:00+02:00",
+    "departureDelay": 0,
+    "departurePlatform": "16",
+    "plannedDeparturePlatform": "16",
+    "arrival": "2026-09-02T17:46:00+02:00",
+    "plannedArrival": "2026-09-02T17:35:00+02:00",
+    "arrivalDelay": 660,
+    "arrivalPlatform": "7",
+    "plannedArrivalPlatform": "7",
+    "line": {
+      "type": "line",
+      "id": "ice-519",
+      "fahrtNr": "519",
+      "name": "ICE 519",
+      "public": true,
+      "adminCode": "80____",
+      "productName": "ICE",
+      "mode": "train",
+      "product": "nationalExpress",
+      "operator": {
+        "type": "operator",
+        "id": "db-fernverkehr-ag",
+        "name": "DB Fernverkehr AG"
+      }
+    },
+    "direction": "Frankfurt(Main)Hbf",
+    "loadFactor": "high",
+    "stopovers": [
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000080",
+          "name": "Dortmund Hbf",
+          "location": {
+            "type": "location",
+            "id": "8000080",
+            "latitude": 51.517896,
+            "longitude": 7.45929
+          }
+        },
+        "arrival": null,
+        "plannedArrival": null,
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": null,
+        "departure": "2026-09-02T15:03:00+02:00",
+        "plannedDeparture": "2026-09-02T15:03:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": "16",
+        "plannedDeparturePlatform": "16",
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000041",
+          "name": "Bochum Hbf",
+          "location": {
+            "type": "location",
+            "id": "8000041",
+            "latitude": 51.478609,
+            "longitude": 7.223275
+          }
+        },
+        "arrival": "2026-09-02T15:13:00+02:00",
+        "plannedArrival": "2026-09-02T15:13:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": "6",
+        "plannedArrivalPlatform": "6",
+        "departure": "2026-09-02T15:15:00+02:00",
+        "plannedDeparture": "2026-09-02T15:15:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": "6",
+        "plannedDeparturePlatform": "6",
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000098",
+          "name": "Essen Hbf",
+          "location": {
+            "type": "location",
+            "id": "8000098",
+            "latitude": 51.451355,
+            "longitude": 7.014793
+          }
+        },
+        "arrival": "2026-09-02T15:33:00+02:00",
+        "plannedArrival": "2026-09-02T15:25:00+02:00",
+        "arrivalDelay": 480,
+        "arrivalPlatform": "4",
+        "plannedArrivalPlatform": "4",
+        "departure": "2026-09-02T15:36:00+02:00",
+        "plannedDeparture": "2026-09-02T15:27:00+02:00",
+        "departureDelay": 540,
+        "departurePlatform": "4",
+        "plannedDeparturePlatform": "4",
+        "remarks": [],
+        "loadFactor": "very-high"
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000086",
+          "name": "Duisburg Hbf",
+          "location": {
+            "type": "location",
+            "id": "8000086",
+            "latitude": 51.429785,
+            "longitude": 6.775903
+          }
+        },
+        "arrival": "2026-09-02T15:50:00+02:00",
+        "plannedArrival": "2026-09-02T15:40:00+02:00",
+        "arrivalDelay": 600,
+        "arrivalPlatform": "12",
+        "plannedArrivalPlatform": "12",
+        "departure": "2026-09-02T15:52:00+02:00",
+        "plannedDeparture": "2026-09-02T15:42:00+02:00",
+        "departureDelay": 600,
+        "departurePlatform": "12",
+        "plannedDeparturePlatform": "12",
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000085",
+          "name": "Düsseldorf Hbf",
+          "location": {
+            "type": "location",
+            "id": "8000085",
+            "latitude": 51.219962,
+            "longitude": 6.794319
+          }
+        },
+        "arrival": "2026-09-02T16:03:00+02:00",
+        "plannedArrival": "2026-09-02T15:53:00+02:00",
+        "arrivalDelay": 600,
+        "arrivalPlatform": "16",
+        "plannedArrivalPlatform": "16",
+        "departure": "2026-09-02T16:07:00+02:00",
+        "plannedDeparture": "2026-09-02T15:56:00+02:00",
+        "departureDelay": 660,
+        "departurePlatform": "16",
+        "plannedDeparturePlatform": "16",
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000207",
+          "name": "Köln Hbf",
+          "location": {
+            "type": "location",
+            "id": "8000207",
+            "latitude": 50.94303,
+            "longitude": 6.958729
+          }
+        },
+        "arrival": "2026-09-02T16:30:00+02:00",
+        "plannedArrival": "2026-09-02T16:19:00+02:00",
+        "arrivalDelay": 660,
+        "arrivalPlatform": "6",
+        "plannedArrivalPlatform": "6",
+        "departure": "2026-09-02T16:35:00+02:00",
+        "plannedDeparture": "2026-09-02T16:24:00+02:00",
+        "departureDelay": 660,
+        "departurePlatform": "6",
+        "plannedDeparturePlatform": "6",
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8005556",
+          "name": "Siegburg/Bonn",
+          "location": {
+            "type": "location",
+            "id": "8005556",
+            "latitude": 50.793915,
+            "longitude": 7.203026
+          }
+        },
+        "arrival": "2026-09-02T16:48:00+02:00",
+        "plannedArrival": "2026-09-02T16:37:00+02:00",
+        "arrivalDelay": 660,
+        "arrivalPlatform": "2",
+        "plannedArrivalPlatform": "2",
+        "departure": "2026-09-02T16:50:00+02:00",
+        "plannedDeparture": "2026-09-02T16:39:00+02:00",
+        "departureDelay": 660,
+        "departurePlatform": "2",
+        "plannedDeparturePlatform": "2",
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000667",
+          "name": "Montabaur",
+          "location": {
+            "type": "location",
+            "id": "8000667",
+            "latitude": 50.444834,
+            "longitude": 7.825333
+          }
+        },
+        "arrival": null,
+        "plannedArrival": "2026-09-02T16:53:00+02:00",
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": "1",
+        "departure": null,
+        "plannedDeparture": "2026-09-02T16:55:00+02:00",
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": "1",
+        "remarks": [
+          {
+            "type": "status",
+            "code": "cancelled stop",
+            "summary": "Halt entfällt",
+            "text": "Halt entfällt"
+          }
+        ],
+        "cancelled": true
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8003680",
+          "name": "Limburg Süd",
+          "location": {
+            "type": "location",
+            "id": "8003680",
+            "latitude": 50.382498,
+            "longitude": 8.096112
+          }
+        },
+        "arrival": "2026-09-02T17:16:00+02:00",
+        "plannedArrival": "2026-09-02T17:04:00+02:00",
+        "arrivalDelay": 720,
+        "arrivalPlatform": "2",
+        "plannedArrivalPlatform": "2",
+        "departure": "2026-09-02T17:18:00+02:00",
+        "plannedDeparture": "2026-09-02T17:06:00+02:00",
+        "departureDelay": 720,
+        "departurePlatform": "2",
+        "plannedDeparturePlatform": "2",
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8070003",
+          "name": "Frankfurt am Main Flughafen Fernbahnhof",
+          "location": {
+            "type": "location",
+            "id": "8070003",
+            "latitude": 50.053167,
+            "longitude": 8.570185
+          }
+        },
+        "arrival": "2026-09-02T17:31:00+02:00",
+        "plannedArrival": "2026-09-02T17:19:00+02:00",
+        "arrivalDelay": 720,
+        "arrivalPlatform": "6",
+        "plannedArrivalPlatform": "4",
+        "departure": "2026-09-02T17:34:00+02:00",
+        "plannedDeparture": "2026-09-02T17:22:00+02:00",
+        "departureDelay": 720,
+        "departurePlatform": "6",
+        "plannedDeparturePlatform": "4",
+        "remarks": [
+          {
+            "type": "status",
+            "code": "changed platform",
+            "summary": "Gleiswechsel",
+            "text": "Gleiswechsel: Ankunft heute auf Gleis 6 statt Gleis 4"
+          }
+        ],
+        "loadFactor": "high"
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000105",
+          "name": "Frankfurt (Main) Hbf",
+          "location": {
+            "type": "location",
+            "id": "8000105",
+            "latitude": 50.107145,
+            "longitude": 8.663789
+          }
+        },
+        "arrival": "2026-09-02T17:46:00+02:00",
+        "plannedArrival": "2026-09-02T17:35:00+02:00",
+        "arrivalDelay": 660,
+        "arrivalPlatform": "7",
+        "plannedArrivalPlatform": "7",
+        "departure": null,
+        "plannedDeparture": null,
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": null,
+        "remarks": []
+      }
+    ],
+    "remarks": [
+      {
+        "type": "hint",
+        "code": "RO",
+        "summary": null,
+        "text": "Bordrestaurant"
+      },
+      {
+        "type": "hint",
+        "code": "FK",
+        "summary": null,
+        "text": "Fahrradmitnahme reservierungspflichtig"
+      },
+      {
+        "type": "warning",
+        "code": "HIM-880123",
+        "summary": "Bauarbeiten zwischen Siegburg/Bonn und Montabaur",
+        "text": "Bauarbeiten zwischen Siegburg/Bonn und Montabaur. Der Halt Montabaur entfällt, der Zug wird umgeleitet. Es kommt zu Verspätungen von etwa 10 Minuten.",
+        "modified": "2026-09-02T06:30:00+02:00",
+        "priority": 120
+      },
+      {
+        "type": "status",
+        "code": "text.realtime.journey.delay",
+        "summary": "Verspätung",
+        "text": "Verspätung aufgrund einer Reparatur am Zug",
+        "modified": "2026-09-02T15:20:00+02:00"
+      }
+    ],
+    "polyline": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.45929,
+              51.517896
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.412123,
+              51.509823
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.364764,
+              51.502902
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.317706,
+              51.494172
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.270658,
+              51.485385
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.223275,
+              51.478609
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.181623,
+              51.472821
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.139894,
+              51.467615
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.098339,
+              51.461083
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.056596,
+              51.455991
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.014793,
+              51.451355
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.966929,
+              51.447997
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.9194,
+              51.440919
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.871364,
+              51.439469
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.823619,
+              51.434788
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.775903,
+              51.429785
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.780559,
+              51.387906
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.781861,
+              51.345732
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.786582,
+              51.303859
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.789709,
+              51.261845
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.794319,
+              51.219962
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.826086,
+              51.163914
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.860815,
+              51.109624
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.894752,
+              51.054864
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.926653,
+              50.998895
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              6.958729,
+              50.94303
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.007927,
+              50.913761
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.055458,
+              50.881762
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.105575,
+              50.854
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.154161,
+              50.823729
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.203026,
+              50.793915
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.326515,
+              50.722366
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.454033,
+              50.657998
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.57412,
+              50.580384
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.701865,
+              50.516422
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.825333,
+              50.444834
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.879281,
+              50.431466
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.933196,
+              50.417951
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              7.988006,
+              50.408324
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.042096,
+              50.395573
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.096112,
+              50.382498
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.192052,
+              50.318251
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.287333,
+              50.253057
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.382239,
+              50.187322
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.476121,
+              50.120114
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.570185,
+              50.053167
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.589141,
+              50.063554
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.607759,
+              50.074529
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.626635,
+              50.085056
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.644988,
+              50.096489
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.663789,
+              50.107145
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "realtimeDataUpdatedAt": 1788708600
+}

@@ -1,0 +1,278 @@
+{
+  "trip": {
+    "id": "1|290443|0|80|2092026",
+    "origin": {
+      "type": "stop",
+      "id": "8011160",
+      "name": "Berlin Hauptbahnhof",
+      "location": {
+        "type": "location",
+        "id": "8011160",
+        "latitude": 52.525592,
+        "longitude": 13.369545
+      }
+    },
+    "destination": {
+      "type": "stop",
+      "id": "8000105",
+      "name": "Frankfurt (Main) Hbf",
+      "location": {
+        "type": "location",
+        "id": "8000105",
+        "latitude": 50.107145,
+        "longitude": 8.663789
+      }
+    },
+    "departure": null,
+    "plannedDeparture": "2026-09-02T17:46:00+02:00",
+    "departureDelay": null,
+    "departurePlatform": null,
+    "plannedDeparturePlatform": "1",
+    "arrival": null,
+    "plannedArrival": "2026-09-02T21:26:00+02:00",
+    "arrivalDelay": null,
+    "arrivalPlatform": null,
+    "plannedArrivalPlatform": "6",
+    "line": {
+      "type": "line",
+      "id": "ice-1601",
+      "fahrtNr": "1601",
+      "name": "ICE 1601",
+      "public": true,
+      "adminCode": "80____",
+      "productName": "ICE",
+      "mode": "train",
+      "product": "nationalExpress",
+      "operator": {
+        "type": "operator",
+        "id": "db-fernverkehr-ag",
+        "name": "DB Fernverkehr AG"
+      }
+    },
+    "direction": "Frankfurt(Main)Hbf",
+    "cancelled": true,
+    "stopovers": [
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8011160",
+          "name": "Berlin Hauptbahnhof",
+          "location": {
+            "type": "location",
+            "id": "8011160",
+            "latitude": 52.525592,
+            "longitude": 13.369545
+          }
+        },
+        "arrival": null,
+        "plannedArrival": null,
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": "1",
+        "departure": null,
+        "plannedDeparture": "2026-09-02T17:46:00+02:00",
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": "1",
+        "cancelled": true,
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8011113",
+          "name": "Berlin Südkreuz",
+          "location": {
+            "type": "location",
+            "id": "8011113",
+            "latitude": 52.475047,
+            "longitude": 13.365319
+          }
+        },
+        "arrival": null,
+        "plannedArrival": "2026-09-02T17:52:00+02:00",
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": "1",
+        "departure": null,
+        "plannedDeparture": "2026-09-02T17:54:00+02:00",
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": "1",
+        "cancelled": true,
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8010222",
+          "name": "Lutherstadt Wittenberg Hauptbahnhof",
+          "location": {
+            "type": "location",
+            "id": "8010222",
+            "latitude": 51.867811,
+            "longitude": 12.662285
+          }
+        },
+        "arrival": null,
+        "plannedArrival": "2026-09-02T18:26:00+02:00",
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": "1",
+        "departure": null,
+        "plannedDeparture": "2026-09-02T18:28:00+02:00",
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": "1",
+        "cancelled": true,
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8010159",
+          "name": "Halle (Saale) Hbf",
+          "location": {
+            "type": "location",
+            "id": "8010159",
+            "latitude": 51.477509,
+            "longitude": 11.987085
+          }
+        },
+        "arrival": null,
+        "plannedArrival": "2026-09-02T19:03:00+02:00",
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": "1",
+        "departure": null,
+        "plannedDeparture": "2026-09-02T19:06:00+02:00",
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": "1",
+        "cancelled": true,
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8010101",
+          "name": "Erfurt Hbf",
+          "location": {
+            "type": "location",
+            "id": "8010101",
+            "latitude": 50.972551,
+            "longitude": 11.038499
+          }
+        },
+        "arrival": null,
+        "plannedArrival": "2026-09-02T19:39:00+02:00",
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": "1",
+        "departure": null,
+        "plannedDeparture": "2026-09-02T19:42:00+02:00",
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": "1",
+        "cancelled": true,
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8010097",
+          "name": "Eisenach",
+          "location": {
+            "type": "location",
+            "id": "8010097",
+            "latitude": 50.976922,
+            "longitude": 10.331986
+          }
+        },
+        "arrival": null,
+        "plannedArrival": "2026-09-02T20:07:00+02:00",
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": "1",
+        "departure": null,
+        "plannedDeparture": "2026-09-02T20:09:00+02:00",
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": "1",
+        "cancelled": true,
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000115",
+          "name": "Fulda",
+          "location": {
+            "type": "location",
+            "id": "8000115",
+            "latitude": 50.554723,
+            "longitude": 9.683977
+          }
+        },
+        "arrival": null,
+        "plannedArrival": "2026-09-02T20:44:00+02:00",
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": "1",
+        "departure": null,
+        "plannedDeparture": "2026-09-02T20:46:00+02:00",
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": "1",
+        "cancelled": true,
+        "remarks": []
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "8000105",
+          "name": "Frankfurt (Main) Hbf",
+          "location": {
+            "type": "location",
+            "id": "8000105",
+            "latitude": 50.107145,
+            "longitude": 8.663789
+          }
+        },
+        "arrival": null,
+        "plannedArrival": "2026-09-02T21:26:00+02:00",
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "plannedArrivalPlatform": "1",
+        "departure": null,
+        "plannedDeparture": null,
+        "departureDelay": null,
+        "departurePlatform": null,
+        "plannedDeparturePlatform": "1",
+        "cancelled": true,
+        "remarks": []
+      }
+    ],
+    "remarks": [
+      {
+        "type": "warning",
+        "code": "HIM-123456",
+        "summary": "Fahrt fällt aus",
+        "text": "Fahrt fällt aus. Grund: Störung an einem Stellwerk in Halle (Saale) Hbf. Bitte nutzen Sie die nachfolgenden Züge.",
+        "modified": "2026-09-02T16:58:00+02:00",
+        "priority": 100
+      },
+      {
+        "type": "status",
+        "code": "text.realtime.journey.cancelled",
+        "summary": "Fahrt fällt aus",
+        "text": "Fahrt fällt aus"
+      }
+    ],
+    "polyline": {
+      "type": "FeatureCollection",
+      "features": []
+    }
+  },
+  "realtimeDataUpdatedAt": 1788708600
+}
